@@ -1,0 +1,16 @@
+<div>
+  <app-button (click)="addNote()">Add a note</app-button>
+  <ul class="text-sm">
+    <li *ngFor="let item of comments" class="m-3">
+      <span class="text-xs">{{ item.createdAt | date : "short" }}</span>
+      <br />
+      <a
+        class="text-blue-600 dark:text-blue-500 hover:underline"
+        href="#"
+        (click)="moveToTime(item.videoTimeMoment)"
+        >{{ item.displayTime }}</a
+      >
+      <p>{{ item.comment }}</p>
+    </li>
+  </ul>
+</div>

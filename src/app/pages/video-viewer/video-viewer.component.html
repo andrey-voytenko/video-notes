@@ -1,5 +1,13 @@
-<div class="flex m-4">
+<div class="flex flex-row m-4 ml-14">
   <app-single-media-player
+    class="max-w-5xl"
     url="./assets/videos/2020-05-30-0859.mp4"
+    (onMediaPlayerReady)="onMediaPlayerReady($event)"
   ></app-single-media-player>
+  <div class="min-w-[200px] max-w-[400px] ml-5">
+    <app-comments-list
+      *ngIf="vgApiService"
+      [vgApiService]="vgApiService"
+    ></app-comments-list>
+  </div>
 </div>

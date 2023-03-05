@@ -1,6 +1,6 @@
 <div class="video-player-wrapper">
   <vg-player class="single-player" (onPlayerReady)="onPlayerReady($event)">
-    <vg-overlay-play (contextmenu)="onRightClick()"></vg-overlay-play>
+    <vg-overlay-play></vg-overlay-play>
     <vg-buffering></vg-buffering>
     <vg-scrub-bar>
       <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
@@ -9,10 +9,22 @@
     <vg-controls>
       <vg-play-pause></vg-play-pause>
       <vg-playback-button></vg-playback-button>
-      <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+      <vg-time-display
+        class="w-20"
+        vgProperty="current"
+        vgFormat="hh:mm:ss"
+      ></vg-time-display>
       <vg-scrub-bar style="pointer-events: none"></vg-scrub-bar>
-      <vg-time-display vgProperty="left" vgFormat="mm:ss"></vg-time-display>
-      <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+      <vg-time-display
+        class="w-20"
+        vgProperty="left"
+        vgFormat="hh:mm:ss"
+      ></vg-time-display>
+      <vg-time-display
+        class="w-20"
+        vgProperty="total"
+        vgFormat="hh:mm:ss"
+      ></vg-time-display>
 
       <vg-mute></vg-mute>
       <vg-volume></vg-volume>

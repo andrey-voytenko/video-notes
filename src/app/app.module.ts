@@ -11,9 +11,23 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { VideoViewerComponent } from './pages/video-viewer/video-viewer.component';
-
+import { CommentsListComponent } from './components/comments-list/comments-list.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { AddCommentDialogComponent } from './components/modals/add-comment/add-comment-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ButtonComponent } from './components/ui/button/button.component';
+import { SideBarComponent } from './components/side-bar/side-bar.component';
 @NgModule({
-  declarations: [AppComponent, SingleMediaPlayerComponent, VideoViewerComponent],
+  declarations: [
+    AppComponent,
+    SingleMediaPlayerComponent,
+    VideoViewerComponent,
+    CommentsListComponent,
+    MenuComponent,
+    AddCommentDialogComponent,
+    ButtonComponent,
+    SideBarComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -25,6 +39,7 @@ import { VideoViewerComponent } from './pages/video-viewer/video-viewer.componen
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

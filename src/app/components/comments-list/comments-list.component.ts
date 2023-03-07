@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { VgApiService } from '@videogular/ngx-videogular/core';
 import { CommentsService } from 'src/app/services/comments/comments.service';
@@ -9,22 +9,23 @@ import { AddCommentModalOutputType } from '../modals/add-comment/add-comment-dia
   selector: 'app-comments-list',
   templateUrl: './comments-list.component.html',
 })
-export class CommentsListComponent {
+export class CommentsListComponent implements OnInit {
   public comments: Comment[] = [];
-
-  @Input() vgApiService: VgApiService;
 
   constructor(
     private dialog: MatDialog,
     private commentsServise: CommentsService
-  ) {
-    commentsServise.commnets$.subscribe((comments) => {
+  ) {}
+
+  ngOnInit(): void {
+    this.commentsServise.commnets$.subscribe((comments) => {
       this.comments = comments;
     });
   }
 
   public addNote = () => {
-    const currentTime = this.vgApiService?.getDefaultMedia().currentTime;
+    const currentTime =
+      this.commentsServise.vgApiService?.getDefaultMedia().currentTime || 0;
     const dialog = this.dialog.open(AddCommentDialogComponent, {
       width: '450px',
       data: {
@@ -43,6 +44,6 @@ export class CommentsListComponent {
   };
 
   public moveToTime = (time: number) => {
-    this.vgApiService.currentTime = time;
+    this.commentsServise.vgApiService.currentTime = time;
   };
 }

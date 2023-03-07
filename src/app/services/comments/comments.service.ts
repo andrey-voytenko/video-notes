@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { VgApiService } from '@videogular/ngx-videogular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Comment } from './comments.service.types';
 
@@ -13,6 +14,7 @@ export class CommentsService {
   >([]);
 
   public commnets$ = this._comments$.asObservable();
+  public vgApiService: VgApiService;
 
   getComments(): Comment[] {
     return this._comments$.getValue();
